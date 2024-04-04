@@ -1,0 +1,21 @@
+.header {
+    font-size: 600%;
+    -unity-text-align: upper-center;
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans");
+    -unity-text-outline-width: 0;
+    -unity-text-outline-color: rgba(255, 0, 0, 0);
+    text-shadow: 10px 10px 5px rgba(238, 0, 0, 0);
+    letter-spacing: 5px;
+    color: rgb(255, 255, 255);
+}
+
+.header {
+}
+
+.dropdown {
+    -unity-text-outline-width: 0;
+    -unity-text-outline-color: rgba(154, 36, 36, 0);
+    text-shadow: 2px 3px 10px rgba(255, 0, 0, 0);
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(255, 255, 255);
+}
