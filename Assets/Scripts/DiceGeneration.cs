@@ -47,7 +47,22 @@ public class DiceGeneration : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0))
         {
-            CheckHit();
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            CheckHit(ray);
+        }
+        
+        if (Input.touchCount > 0)
+        {
+            // Get first Touch
+            Touch touch = Input.GetTouch(0);
+
+            // Check wether its a touch start or continuing touch
+            if (touch.phase == TouchPhase.Began)
+            {
+                // Get ray
+                Ray ray = Camera.main.ScreenPointToRay(new Vector3(touch.position.x, touch.position.y,0));
+                CheckHit(ray);
+            }
         }
     }
 
@@ -105,10 +120,12 @@ public class DiceGeneration : MonoBehaviour
         }
     }
 
-    public void CheckHit()
+    public void CheckHit(Ray ray)
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+        
+        Debug.Log(ray.origin);
+        Debug.Log(ray.direction);
 
         // Check Cast for hit
         if (!Physics.Raycast(ray, out hit)) return;
