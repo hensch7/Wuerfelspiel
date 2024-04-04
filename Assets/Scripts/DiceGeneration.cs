@@ -32,29 +32,38 @@ public class DiceGeneration : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            currentDiceAmount = diceAmount;
-            RollDice();
-            Debug.Log("Rolled dice");
+            FreshRoll();
         }
         
         if (Input.GetKeyDown(KeyCode.S))
         {
-            ClearDice();
-            currentDiceAmount = diceAmount - dices.Count;
-            RollDice();
-            Debug.Log("Select re-roll");
+            ReRoll();
         }
         
         if (Input.GetKeyDown(KeyCode.X))
         {
             ClearAllDice();
-            Debug.Log("Removed all dices");
         }
         
         if (Input.GetMouseButtonDown(0))
         {
             CheckHit();
         }
+    }
+
+    public void FreshRoll()
+    {
+        currentDiceAmount = diceAmount;
+        RollDice();
+        Debug.Log("Rolled dice");
+    }
+
+    public void ReRoll()
+    {
+        ClearDice();
+        currentDiceAmount = diceAmount - dices.Count;
+        RollDice();
+        Debug.Log("Select re-roll");
     }
 
     private void RollDice()
@@ -96,7 +105,7 @@ public class DiceGeneration : MonoBehaviour
         }
     }
 
-    private void CheckHit()
+    public void CheckHit()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -144,5 +153,7 @@ public class DiceGeneration : MonoBehaviour
         }
 
         dices.Clear();
+        
+        Debug.Log("Removed all dices");
     }
 }

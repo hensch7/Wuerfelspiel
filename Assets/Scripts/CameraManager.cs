@@ -19,7 +19,7 @@ public class CameraManager : MonoBehaviour
         }
     }
 
-    private void ToggleCam()
+    public void ToggleCam()
     {
         cam1.enabled = !cam1.enabled;
         cam2.enabled = !cam2.enabled;
